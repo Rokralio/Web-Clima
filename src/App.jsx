@@ -1,12 +1,15 @@
-import { ApiClimaApp } from "./componentes/Api/openweather/ApiClimaApp";
+import { useState } from "react";
+import { ApiClimaApp } from "./componentes/api/openweather/ApiClimaApp";
+import { GetClimaFondo } from "./componentes/ImgFondo/GetClimaFondo";
 
 function App() {
+  const [descripcionClima, setDescripcionClima] = useState('');
+
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center vh-100">
-        <div >
-          <ApiClimaApp/>
-        </div>
+      <GetClimaFondo descripcionClima={descripcionClima} />
+      <div className="container-fluid vh-100 d-flex justify-content-center align-items-center">
+          <ApiClimaApp setDescripcionClima={setDescripcionClima} />
       </div>
     </>
   );
